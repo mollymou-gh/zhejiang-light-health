@@ -1,0 +1,275 @@
+/* ===== 设计令牌 ===== */
+:root{
+  --ink:#1f2a5c;          /* 科研深靛蓝 */
+  --ink-soft:#3a4575;
+  --gold:#d8a23a;         /* 暖光金 */
+  --gold-soft:#e9c884;
+  --paper:#fbfaf7;        /* 暖白底 */
+  --paper-2:#f3f1ea;      /* 次级底 */
+  --line:#e4e0d6;
+  --text:#22252e;
+  --muted:#777b86;
+  --maxw:1120px;
+  --r:14px;
+  --shadow:0 1px 2px rgba(31,42,92,.04), 0 12px 32px rgba(31,42,92,.06);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{
+  font-family:"Inter","Noto Serif SC",system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--text);background:var(--paper);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Noto Serif SC","Inter",serif;color:var(--ink);line-height:1.3;font-weight:600}
+a{color:inherit;text-decoration:none}
+img,svg{display:block}
+.muted{color:var(--muted)}
+
+/* ===== 导航 ===== */
+.nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;gap:24px;
+  padding:14px clamp(18px,4vw,40px);
+  background:rgba(251,250,247,.82);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.brand-mark{display:flex}
+.brand-text strong{display:block;font-size:15px;color:var(--ink);font-family:"Noto Serif SC",serif;letter-spacing:.2px}
+.brand-text small{display:block;font-size:11px;color:var(--muted);letter-spacing:.5px}
+.nav-links{display:flex;gap:26px}
+.nav-links a{font-size:14px;color:var(--ink-soft);position:relative;padding:4px 0;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1.5px;background:var(--gold);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.lang-btn{
+  border:1px solid var(--line);background:transparent;color:var(--ink);
+  font:600 12px/1 "Inter";letter-spacing:.5px;padding:8px 12px;border-radius:8px;cursor:pointer;transition:.2s;
+}
+.lang-btn:hover{border-color:var(--gold);color:var(--gold)}
+.menu-btn{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:6px}
+.menu-btn span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:.25s}
+
+/* ===== 首屏 ===== */
+.hero{position:relative;overflow:hidden;padding:clamp(70px,12vw,130px) clamp(18px,4vw,40px) clamp(50px,8vw,90px)}
+.hero-glow{
+  position:absolute;top:-30%;right:-10%;width:60vw;height:60vw;max-width:760px;max-height:760px;
+  background:radial-gradient(circle, rgba(216,162,58,.20) 0%, rgba(216,162,58,.06) 40%, transparent 68%);
+  border-radius:50%;pointer-events:none;
+}
+.hero-glow::after{
+  content:"";position:absolute;inset:18%;border-radius:50%;
+  border:1px solid rgba(31,42,92,.10);box-shadow:0 0 0 40px rgba(31,42,92,.04), 0 0 0 90px rgba(31,42,92,.025);
+}
+.hero-inner{position:relative;max-width:var(--maxw);margin:0 auto}
+.eyebrow{font:600 13px/1 "Inter";letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.hero h1{font-size:clamp(32px,5.6vw,58px);max-width:14em;margin-bottom:24px;letter-spacing:.5px}
+.hero-sub{font-size:clamp(15px,1.8vw,19px);color:var(--ink-soft);max-width:42em;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;font:600 15px/1 "Inter","Noto Serif SC";padding:14px 26px;border-radius:10px;transition:.22s;border:1px solid transparent}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:#16204a;transform:translateY(-1px)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+
+/* ===== 三大价值 ===== */
+.pillars{
+  max-width:var(--maxw);margin:0 auto;padding:0 clamp(18px,4vw,40px) clamp(40px,7vw,80px);
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.pillar{padding:30px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.pillar-no{font:700 13px/1 "Inter";color:var(--gold);letter-spacing:1px}
+.pillar h3{font-size:20px;margin:14px 0 10px}
+.pillar p{font-size:14.5px;color:var(--ink-soft)}
+
+/* ===== 通用区块 ===== */
+.block{max-width:var(--maxw);margin:0 auto;padding:clamp(54px,9vw,100px) clamp(18px,4vw,40px)}
+.block.alt{max-width:none;background:var(--paper-2);border-block:1px solid var(--line)}
+.block.alt > *{max-width:var(--maxw);margin-inline:auto}
+.block-head{margin-bottom:44px;max-width:44em}
+.kicker{font:600 12px/1 "Inter";letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.block-head h2{font-size:clamp(24px,3.4vw,36px)}
+.block-intro{margin-top:16px;font-size:16px;color:var(--ink-soft)}
+
+/* 学术带头人 */
+.leader{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start}
+.leader-id{text-align:center;padding:30px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.leader-avatar{display:inline-flex;margin-bottom:16px}
+.leader-id h3{font-size:22px;margin-bottom:8px}
+.leader-role{font-size:13px;color:var(--muted);line-height:1.5}
+.leader-cv{list-style:none;display:flex;flex-direction:column;gap:14px}
+.leader-cv li{position:relative;padding-left:24px;font-size:15px;color:var(--ink-soft);line-height:1.65}
+.leader-cv li::before{content:"";position:absolute;left:0;top:11px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.team-title{margin:48px 0 22px;font-size:20px;padding-top:32px;border-top:1px solid var(--line)}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.member{padding:28px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.member-avatar{display:inline-flex;margin-bottom:14px}
+.member h4{font-size:18px;margin-bottom:6px}
+.member-role{font-size:13px;margin-bottom:10px}
+.member-bio{font-size:14px;line-height:1.6}
+.member-cv{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.member-cv li{position:relative;padding-left:18px;font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.member-cv li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.pub-items{list-style:none;display:flex;flex-direction:column;gap:12px}
+.pub-items li{position:relative;padding-left:18px;font-size:14px;color:var(--ink-soft);line-height:1.6}
+.pub-items li::before{content:"—";position:absolute;left:0;color:var(--gold)}
+
+/* 关于 */
+.about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:48px;align-items:start}
+.about-text p{font-size:16px;color:var(--ink-soft);margin-bottom:18px}
+.stat-list{list-style:none;display:flex;flex-direction:column;gap:18px}
+.stat-list li{display:flex;flex-direction:column;padding:18px 22px;background:#fff;border:1px solid var(--line);border-radius:var(--r);border-left:3px solid var(--gold)}
+.stat-list strong{font:600 22px/1.2 "Noto Serif SC";color:var(--ink)}
+.stat-list span{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* 研究方向卡片 */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.card{padding:32px;background:#fff;border:1px solid var(--line);border-radius:var(--r);transition:.25s;box-shadow:var(--shadow)}
+.card:hover{transform:translateY(-3px);border-color:var(--gold-soft)}
+.card-icon{display:inline-flex;color:var(--ink);width:46px;height:46px;margin-bottom:18px}
+.card-icon svg{width:46px;height:46px}
+.card h3{font-size:19px;margin-bottom:10px}
+.card p{font-size:14.5px;color:var(--ink-soft)}
+
+/* 科研成果 */
+.pub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pub-col{padding:28px;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.pub-col h4{font-size:17px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.pub-col p{font-size:14px}
+
+/* 科普 */
+.know-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.know-item{display:flex;flex-direction:column;padding:26px;background:#fff;border:1px solid var(--line);border-radius:var(--r);transition:.25s}
+.know-item:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--gold-soft)}
+.know-tag{display:inline-block;align-self:flex-start;font:600 11px/1 "Inter";letter-spacing:.5px;color:var(--gold);background:rgba(216,162,58,.12);padding:5px 10px;border-radius:20px;margin-bottom:14px}
+.know-item h4{font-size:17px;margin-bottom:10px;line-height:1.45}
+.know-item p{font-size:13.5px;color:var(--ink-soft);line-height:1.65}
+.know-src{margin-top:14px;font:600 12px/1.4 "Inter","Noto Serif SC";color:var(--muted)}
+.know-item:hover .know-src{color:var(--gold)}
+
+/* 趣味实验室入口 */
+.funlab{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;
+  margin-top:28px;padding:34px clamp(24px,4vw,44px);border-radius:var(--r);
+  background:linear-gradient(120deg,#16204a 0%,var(--ink) 100%);
+  position:relative;overflow:hidden;transition:.25s}
+.funlab::before{content:"";position:absolute;top:-40%;right:-6%;width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(216,162,58,.30),transparent 65%);pointer-events:none}
+.funlab:hover{transform:translateY(-3px)}
+.funlab-text{position:relative;max-width:46em}
+.funlab-text .know-tag{background:rgba(216,162,58,.2);color:var(--gold-soft)}
+.funlab-text h3{color:#fff;font-size:clamp(20px,2.4vw,26px);margin-bottom:10px}
+.funlab-text p{color:#cfd4e6;font-size:15px;line-height:1.65}
+.funlab-cta{position:relative;flex-shrink:0;font:600 15px/1 "Inter","Noto Serif SC";
+  color:var(--ink);background:var(--gold-soft);padding:15px 26px;border-radius:10px;transition:.2s}
+.funlab:hover .funlab-cta{background:#fff}
+
+/* 订阅公众号 */
+.subscribe{display:flex;align-items:center;gap:30px;flex-wrap:wrap;
+  margin-top:24px;padding:30px clamp(24px,4vw,40px);
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.subscribe-qr{flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  width:148px;height:148px;border:1.5px dashed var(--gold-soft);border-radius:12px;
+  color:var(--ink);background:var(--paper)}
+.subscribe-qr span{font-size:11px;color:var(--muted);letter-spacing:.5px}
+.subscribe-text{flex:1;min-width:240px}
+.subscribe-text h3{font-size:clamp(18px,2.2vw,22px);margin-bottom:10px}
+.subscribe-text p{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+
+/* 合作 */
+.collab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.collab-card{padding:30px;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+.collab-card h4{font-size:18px;margin-bottom:10px}
+.collab-card p{font-size:14.5px;color:var(--ink-soft)}
+
+/* 新闻 */
+.news-list{list-style:none;display:flex;flex-direction:column}
+.news-list li{display:flex;gap:24px;align-items:baseline;padding:20px 4px;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink-soft);transition:.2s}
+.news-list li:hover{padding-left:12px;color:var(--ink)}
+.news-date{font:600 13px/1 "Inter";color:var(--gold);min-width:92px;letter-spacing:.5px}
+.news-text{flex:1}
+.news-link{color:inherit;transition:color .2s}
+.news-link:hover{color:var(--gold)}
+.news-link::after{content:"↗";margin-left:7px;font-size:13px;color:var(--gold);opacity:.8}
+
+/* 联系 */
+.contact{background:var(--ink);color:#eef0f7;border-radius:0}
+.contact .kicker{color:var(--gold-soft)}
+.contact h2{color:#fff}
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px}
+.contact-info p{margin-bottom:12px;font-size:15px}
+.contact-info .muted{color:#aab0c8}
+.contact-join{padding:28px;border:1px solid rgba(255,255,255,.16);border-radius:var(--r);background:rgba(255,255,255,.04)}
+.contact-join h4{color:#fff;font-size:18px;margin-bottom:12px}
+.contact-join p{font-size:14.5px;color:#cfd4e6}
+
+/* 页脚 */
+.footer{background:#16204a;color:#cfd4e6;padding:40px clamp(18px,4vw,40px)}
+.footer-inner{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-brand strong{display:block;color:#fff;font-family:"Noto Serif SC",serif;font-size:15px}
+.footer-brand small{color:#9aa1bd;font-size:12px}
+.footer-copy{font-size:12.5px;color:#9aa1bd}
+
+/* ===== 子页头部 ===== */
+.subhero{position:relative;overflow:hidden;padding:clamp(50px,8vw,90px) clamp(18px,4vw,40px) clamp(36px,5vw,56px);background:var(--paper-2);border-bottom:1px solid var(--line)}
+.subhero-inner{max-width:var(--maxw);margin:0 auto}
+.subhero h1{font-size:clamp(28px,4.4vw,46px);margin-bottom:18px;max-width:18em}
+.crumb{margin-bottom:18px;font-size:14px}
+.crumb a{color:var(--muted)}
+.crumb a:hover{color:var(--gold)}
+.nav-links a.active{color:var(--gold)}
+.nav-links a.active::after{width:100%}
+
+/* ===== 折叠成果列表 ===== */
+.acc{display:flex;flex-direction:column;gap:14px;max-width:var(--maxw);margin-inline:auto}
+.acc-item{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.acc-item summary{display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;list-style:none;transition:background .2s}
+.acc-item summary::-webkit-details-marker{display:none}
+.acc-item summary::after{content:"+";margin-left:auto;font:300 24px/1 "Inter";color:var(--gold);transition:transform .2s}
+.acc-item[open] summary::after{content:"–"}
+.acc-item summary:hover{background:var(--paper)}
+.acc-no{flex-shrink:0;min-width:46px;text-align:center;font:600 12px/1 "Inter";letter-spacing:.5px;color:var(--gold);background:rgba(216,162,58,.12);padding:7px 8px;border-radius:6px}
+.acc-t{font-family:"Noto Serif SC",serif;font-size:16px;color:var(--ink);font-weight:600}
+.acc-body{padding:4px 24px 22px 86px}
+.acc-body p{font-size:14.5px;color:var(--ink-soft);line-height:1.65;margin-bottom:10px}
+.acc-links{display:flex;gap:22px;flex-wrap:wrap;font:600 14px/1 "Inter","Noto Serif SC"}
+.acc-links a{color:var(--gold)}
+.acc-links a:hover{text-decoration:underline}
+
+/* ===== 成果详情页 ===== */
+.detail-grid{display:grid;grid-template-columns:1fr 320px;gap:48px;max-width:var(--maxw);margin-inline:auto;align-items:start}
+.detail-main h2{font-size:22px;margin:28px 0 12px}
+.detail-main h2:first-child{margin-top:0}
+.detail-main p{font-size:16px;color:var(--ink-soft);line-height:1.8}
+.detail-side{padding:28px;background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);position:sticky;top:90px}
+.detail-side h3{font-size:17px;margin-bottom:16px}
+.fact{display:grid;grid-template-columns:1fr;gap:2px;margin-bottom:22px}
+.fact dt{font:600 12px/1.4 "Inter";letter-spacing:.5px;color:var(--gold);margin-top:12px}
+.fact dd{font-size:14.5px;color:var(--ink);line-height:1.5}
+
+/* ===== 活动与参与 ===== */
+.engage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:28px}
+.engage-card{padding:32px;background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.engage-card .know-tag{margin-bottom:14px}
+.engage-card h3{font-size:20px;margin-bottom:10px}
+.engage-card p{font-size:14.5px;color:var(--ink-soft);line-height:1.65}
+.engage-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:30px clamp(24px,4vw,40px);border:1px solid var(--line);border-radius:var(--r);background:var(--paper-2)}
+.engage-cta p{font-size:15px;color:var(--ink-soft);max-width:40em}
+.engage-cta strong{display:block;font-family:"Noto Serif SC",serif;font-size:19px;color:var(--ink);margin-bottom:6px}
+
+/* ===== 响应式 ===== */
+@media(max-width:860px){
+  .nav-links{
+    position:fixed;top:62px;left:0;right:0;flex-direction:column;gap:0;
+    background:var(--paper);border-bottom:1px solid var(--line);
+    padding:8px clamp(18px,4vw,40px);transform:translateY(-130%);transition:transform .3s;
+  }
+  .nav-links.open{transform:translateY(0);box-shadow:var(--shadow)}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--line)}
+  .menu-btn{display:flex}
+  .pillars,.cards,.pub-grid,.know-list,.collab-grid{grid-template-columns:1fr}
+  .about-grid,.contact-grid,.leader,.team-grid,.detail-grid,.engage-grid{grid-template-columns:1fr;gap:28px}
+  .detail-side{position:static}
+  .acc-body{padding-left:24px}
+}
