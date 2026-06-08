@@ -258,6 +258,14 @@ img,svg{display:block}
 .engage-cta p{font-size:15px;color:var(--ink-soft);max-width:40em}
 .engage-cta strong{display:block;font-family:"Noto Serif SC",serif;font-size:19px;color:var(--ink);margin-bottom:6px}
 
+/* ===== 文献/专利引用列表 ===== */
+.reflist{list-style:none;display:flex;flex-direction:column;gap:16px;max-width:var(--maxw);margin-inline:auto}
+.reflist li{padding:20px 24px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:10px;transition:.2s}
+.reflist li:hover{box-shadow:var(--shadow);transform:translateX(2px)}
+.ref-title{display:block;font:600 15.5px/1.5 "Inter","Noto Serif SC";color:var(--ink)}
+.ref-title:hover{color:var(--gold)}
+.ref-note{display:block;margin-top:6px;font-size:13.5px;color:var(--muted);line-height:1.55}
+
 /* ===== 响应式 ===== */
 @media(max-width:860px){
   .nav-links{
