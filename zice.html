@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-zh="光环境健康自测 · 浙江智慧光健康科学研究中心" data-en="Light Environment Self-Check · Zhejiang Research Center for Smart Light and Health">光环境健康自测 · 浙江智慧光健康科学研究中心</title>
+<meta name="description" data-zh="基于国家标准关键阈值的读写/护眼光环境快速自评工具，免费、科普性参考。" data-en="A free self-check of your reading/eye-care light environment, based on key thresholds from national standards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='6' fill='%23d8a23a'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%231f2a5c' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='15' fill='none' stroke='%231f2a5c' stroke-width='1' opacity='0.4'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="nav" id="top">
+  <a class="brand" href="index.html">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 40 40" width="34" height="34">
+        <circle cx="20" cy="20" r="6.5" fill="var(--gold)"/>
+        <circle cx="20" cy="20" r="12" fill="none" stroke="var(--ink)" stroke-width="1.6"/>
+        <circle cx="20" cy="20" r="17.5" fill="none" stroke="var(--ink)" stroke-width="1" opacity="0.35"/>
+      </svg>
+    </span>
+    <span class="brand-text">
+      <strong data-zh="浙江智慧光健康科学研究中心" data-en="Smart Light &amp; Health">浙江智慧光健康科学研究中心</strong>
+      <small data-zh="光环境自测工具" data-en="Light Environment Self-Check">光环境自测工具</small>
+    </span>
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html#about" data-zh="关于中心" data-en="About">关于中心</a>
+    <a href="index.html#research" data-zh="研究方向" data-en="Research">研究方向</a>
+    <a href="chengguo.html" data-zh="科研成果" data-en="Output">科研成果</a>
+    <a href="index.html#knowledge" data-zh="科普教育" data-en="Knowledge">科普教育</a>
+    <a href="index.html#contact" data-zh="联系我们" data-en="Contact">联系我们</a>
+  </nav>
+  <div class="nav-actions">
+    <button id="langToggle" class="lang-btn" aria-label="Switch language">EN</button>
+    <button id="menuToggle" class="menu-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="subhero">
+  <div class="subhero-inner">
+    <p class="eyebrow" data-zh="在线工具 · 免费" data-en="Online Tool · Free">在线工具 · 免费</p>
+    <h1 data-zh="光环境健康自测" data-en="Light Environment Self-Check">光环境健康自测</h1>
+    <p class="hero-sub" data-zh="填写你读写/学习场景的几项光环境参数，依据国家标准的关键阈值，快速得到一个健康度评分与改善建议。" data-en="Enter a few parameters of your reading/study lighting, and get a quick health score and improvement tips based on key thresholds from national standards.">填写你读写/学习场景的几项光环境参数，依据国家标准的关键阈值，快速得到一个健康度评分与改善建议。</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="tool-wrap">
+    <form class="tool-form" id="zForm" autocomplete="off">
+      <div class="field">
+        <label data-zh="① 读写面照度（勒克斯 lux）" data-en="① Illuminance on the desk (lux)">① 读写面照度（勒克斯 lux）</label>
+        <input type="number" id="lux" min="0" max="5000" step="10" placeholder="例如 / e.g. 300">
+        <span class="hint" data-zh="国标建议读写面≥300 lux；500 lux 以上更佳。无照度计可先估。" data-en="Standards suggest ≥300 lux on the desk; 500+ is better. Estimate if you have no meter.">国标建议读写面≥300 lux；500 lux 以上更佳。无照度计可先估。</span>
+      </div>
+      <div class="field">
+        <label data-zh="② 光源相关色温（K）" data-en="② Correlated color temperature (K)">② 光源相关色温（K）</label>
+        <select id="cct">
+          <option value="warm" data-zh="≤4000K（暖/中性白，适宜读写）" data-en="≤4000K (warm/neutral, good for reading)">≤4000K（暖/中性白，适宜读写）</option>
+          <option value="mid" data-zh="4000–5000K（中性偏冷）" data-en="4000–5000K (neutral-cool)">4000–5000K（中性偏冷）</option>
+          <option value="cool" data-zh="&gt;5000K（冷白，夜间不宜）" data-en="&gt;5000K (cool, not ideal at night)">&gt;5000K（冷白，夜间不宜）</option>
+        </select>
+      </div>
+      <div class="field">
+        <label data-zh="③ 显色指数 Ra" data-en="③ Color rendering index (Ra)">③ 显色指数 Ra</label>
+        <select id="ra">
+          <option value="high" data-zh="≥90（优）" data-en="≥90 (excellent)">≥90（优）</option>
+          <option value="ok" data-zh="80–89（合格）" data-en="80–89 (acceptable)">80–89（合格）</option>
+          <option value="low" data-zh="&lt;80 或不确定（偏低）" data-en="&lt;80 or unsure (low)">&lt;80 或不确定（偏低）</option>
+        </select>
+      </div>
+      <div class="field">
+        <label data-zh="④ 频闪（肉眼/手机摄像头观察）" data-en="④ Flicker (by eye / phone camera)">④ 频闪（肉眼/手机摄像头观察）</label>
+        <select id="flick">
+          <option value="none" data-zh="无可见频闪" data-en="No visible flicker">无可见频闪</option>
+          <option value="slight" data-zh="轻微/偶见条纹" data-en="Slight / occasional stripes">轻微/偶见条纹</option>
+          <option value="strong" data-zh="明显频闪/条纹" data-en="Obvious flicker / stripes">明显频闪/条纹</option>
+        </select>
+      </div>
+      <div class="field">
+        <label data-zh="⑤ 蓝光危害等级（如产品有标注）" data-en="⑤ Blue-light hazard group (if labeled)">⑤ 蓝光危害等级（如产品有标注）</label>
+        <select id="blue">
+          <option value="rg0" data-zh="RG0 无危害" data-en="RG0 — no hazard">RG0 无危害</option>
+          <option value="rg1" data-zh="RG1 低危害" data-en="RG1 — low hazard">RG1 低危害</option>
+          <option value="rg2" data-zh="RG2 及以上" data-en="RG2 or above">RG2 及以上</option>
+          <option value="unknown" data-zh="不确定/无标注" data-en="Unsure / not labeled">不确定/无标注</option>
+        </select>
+      </div>
+      <div class="field">
+        <label data-zh="⑥ 照度均匀度（桌面明暗是否均匀）" data-en="⑥ Illuminance uniformity (evenness on desk)">⑥ 照度均匀度（桌面明暗是否均匀）</label>
+        <select id="unif">
+          <option value="good" data-zh="较均匀（≥0.7）" data-en="Fairly even (≥0.7)">较均匀（≥0.7）</option>
+          <option value="poor" data-zh="明暗不均（&lt;0.7）" data-en="Uneven (&lt;0.7)">明暗不均（&lt;0.7）</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" id="calcBtn" data-zh="生成自测结果" data-en="Get my result">生成自测结果</button>
+    </form>
+
+    <aside class="tool-result" id="result" hidden>
+      <div class="score-ring" id="scoreRing">
+        <span class="score-num" id="scoreNum">0</span>
+        <span class="score-max">/100</span>
+      </div>
+      <h3 class="score-label" id="scoreLabel"></h3>
+      <div class="dim-bars" id="dimBars"></div>
+      <h4 class="tips-title" data-zh="改善建议" data-en="Suggestions" id="tipsTitle">改善建议</h4>
+      <ul class="tips" id="tips"></ul>
+      <p class="muted disc" id="disc"></p>
+      <a class="btn btn-ghost" href="index.html#contact" id="ctaContact"></a>
+    </aside>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong data-zh="浙江智慧光健康科学研究中心" data-en="Zhejiang Research Center for Smart Light and Health">浙江智慧光健康科学研究中心</strong>
+      <small data-zh="非营利 · 民办非企业单位" data-en="Non-profit research institution">非营利 · 民办非企业单位</small>
+    </div>
+    <p class="footer-copy">© <span id="year"></span> <span data-zh="浙江智慧光健康科学研究中心　保留所有权利" data-en="Zhejiang Research Center for Smart Light and Health. All rights reserved.">浙江智慧光健康科学研究中心　保留所有权利</span></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+(function(){
+  var L = function(){ return document.documentElement.lang === 'en' ? 'en' : 'zh'; };
+  var T = {
+    excellent:{zh:'优秀 · 光环境健康',en:'Excellent — healthy light'},
+    good:{zh:'良好 · 小幅可优化',en:'Good — minor tweaks'},
+    fair:{zh:'一般 · 建议改善',en:'Fair — worth improving'},
+    poor:{zh:'需改善 · 影响用眼健康',en:'Needs work — may affect eye health'},
+    visual:{zh:'光视觉健康',en:'Visual health'},
+    safety:{zh:'光生物安全',en:'Photobiological safety'},
+    rhythm:{zh:'昼夜节律',en:'Circadian'},
+    disc:{zh:'本工具依据国标关键阈值做科普性自评，结果仅供参考，不能替代专业仪器测量。需要精确检测或合作，欢迎联系中心。',
+          en:'This tool gives an educational self-assessment based on key national-standard thresholds. Results are indicative only and cannot replace instrument-based measurement. For accurate testing or collaboration, contact the Center.'},
+    cta:{zh:'需要专业检测？联系我们 →',en:'Need professional testing? Contact us →'},
+    tips:{
+      lux:{zh:'读写面照度偏低，建议提升至 300 lux 以上（精读 500 lux 更佳）。',en:'Desk illuminance is low; raise it above 300 lux (500+ for close work).'},
+      cctCool:{zh:'夜间读写建议色温≤4000K，过冷的白光会更强地抑制褪黑素、干扰节律。',en:'For night reading use ≤4000K; very cool light suppresses melatonin and disrupts the body clock more.'},
+      cctMid:{zh:'色温略偏冷，夜间读写更建议选择≤4000K。',en:'Slightly cool; ≤4000K is preferable for night reading.'},
+      ra:{zh:'显色指数偏低，建议选用 Ra≥80（理想 Ra≥90）的光源，使颜色更真实、用眼更舒适。',en:'Low color rendering; choose Ra≥80 (ideally ≥90) for truer colors and more comfortable viewing.'},
+      flickStrong:{zh:'存在明显频闪，易致眼疲劳与头痛，建议更换为“无可视频闪”的灯具。',en:'Obvious flicker can cause eye strain and headaches; switch to a flicker-free luminaire.'},
+      flickSlight:{zh:'有轻微频闪，建议选择标注“无可视频闪/无频闪”的产品。',en:'Slight flicker; prefer products labeled flicker-free.'},
+      blue:{zh:'建议选择蓝光危害等级为 RG0（无危害）的产品，尤其儿童使用。',en:'Choose products rated RG0 (no blue-light hazard), especially for children.'},
+      blueUnknown:{zh:'蓝光等级未标注，建议优先选购明确标注 RG0 的护眼产品。',en:'Blue-light group unlabeled; prefer products clearly rated RG0.'},
+      unif:{zh:'桌面明暗不均，建议改善照度均匀度至 0.7 以上，减少视疲劳。',en:'Uneven desktop lighting; improve uniformity to ≥0.7 to reduce eye strain.'},
+      none:{zh:'各项指标良好，请继续保持，并注意每用眼 20 分钟远眺放松。',en:'All indicators look good — keep it up, and rest your eyes (look far) every 20 minutes.'}
+    }
+  };
+
+  var last = null;
+
+  function compute(){
+    var lux = parseFloat(document.getElementById('lux').value);
+    if (isNaN(lux)) lux = 0;
+    var cct = document.getElementById('cct').value;
+    var ra = document.getElementById('ra').value;
+    var flick = document.getElementById('flick').value;
+    var blue = document.getElementById('blue').value;
+    var unif = document.getElementById('unif').value;
+
+    // 光视觉健康: 照度(20) + Ra(15) + 频闪(20) + 均匀度(10) = 65
+    var sLux = lux>=500?20:(lux>=300?16:(lux>=200?10:4));
+    var sRa = ra==='high'?15:(ra==='ok'?12:5);
+    var sFlick = flick==='none'?20:(flick==='slight'?10:2);
+    var sUnif = unif==='good'?10:4;
+    var visual = sLux + sRa + sFlick + sUnif;          // /65
+    // 昼夜节律: 色温(20)
+    var sCct = cct==='warm'?20:(cct==='mid'?12:6);
+    var rhythm = sCct;                                  // /20
+    // 光生物安全: 蓝光(15)
+    var sBlue = blue==='rg0'?15:(blue==='rg1'?9:(blue==='rg2'?3:6));
+    var safety = sBlue;                                 // /15
+
+    var total = visual + rhythm + safety;               // /100
+
+    var tips = [];
+    if (lux < 300) tips.push('lux');
+    if (cct==='cool') tips.push('cctCool'); else if (cct==='mid') tips.push('cctMid');
+    if (ra==='low') tips.push('ra');
+    if (flick==='strong') tips.push('flickStrong'); else if (flick==='slight') tips.push('flickSlight');
+    if (blue==='rg1'||blue==='rg2') tips.push('blue'); else if (blue==='unknown') tips.push('blueUnknown');
+    if (unif==='poor') tips.push('unif');
+    if (tips.length===0) tips.push('none');
+
+    return {total:total, visual:visual, rhythm:rhythm, safety:safety, tips:tips};
+  }
+
+  function render(r){
+    var lang = L();
+    document.getElementById('result').hidden = false;
+    document.getElementById('scoreNum').textContent = r.total;
+    var label, color;
+    if (r.total>=85){ label='excellent'; color='#3a9c6b'; }
+    else if (r.total>=70){ label='good'; color='#d8a23a'; }
+    else if (r.total>=55){ label='fair'; color='#e08a3a'; }
+    else { label='poor'; color='#cf5b4e'; }
+    document.getElementById('scoreLabel').textContent = T[label][lang];
+    var ring = document.getElementById('scoreRing');
+    ring.style.background = 'conic-gradient('+color+' '+(r.total*3.6)+'deg, #ece8de 0deg)';
+    document.getElementById('scoreNum').style.color = color;
+
+    var bars = [
+      {k:'visual', v:r.visual, max:65},
+      {k:'safety', v:r.safety, max:15},
+      {k:'rhythm', v:r.rhythm, max:20}
+    ];
+    document.getElementById('dimBars').innerHTML = bars.map(function(b){
+      var pct = Math.round(b.v/b.max*100);
+      return '<div class="dim"><span class="dim-name">'+T[b.k][lang]+'</span>'+
+             '<span class="dim-track"><span class="dim-fill" style="width:'+pct+'%"></span></span>'+
+             '<span class="dim-pct">'+pct+'%</span></div>';
+    }).join('');
+
+    document.getElementById('tips').innerHTML = r.tips.map(function(k){
+      return '<li>'+T.tips[k][lang]+'</li>';
+    }).join('');
+    document.getElementById('tipsTitle').textContent = (lang==='en'?'Suggestions':'改善建议');
+    document.getElementById('disc').textContent = T.disc[lang];
+    var cta = document.getElementById('ctaContact');
+    cta.textContent = T.cta[lang];
+  }
+
+  document.getElementById('zForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    last = compute();
+    render(last);
+    document.getElementById('result').scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+  // 语言切换时重渲染已有结果
+  var lt = document.getElementById('langToggle');
+  if (lt) lt.addEventListener('click', function(){ if(last) setTimeout(function(){render(last);},0); });
+})();
+</script>
+</body>
+</html>
