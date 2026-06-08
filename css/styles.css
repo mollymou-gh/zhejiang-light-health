@@ -296,6 +296,34 @@ img,svg{display:block}
 .tool-result .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff;width:100%;justify-content:center}
 .tool-result .btn-ghost:hover{background:#fff;color:var(--ink)}
 
+/* ===== 招牌框架页：三维度 ===== */
+.dimblock{display:grid;grid-template-columns:84px 1fr;gap:30px;max-width:var(--maxw);margin-inline:auto;align-items:start}
+.dimnum span{display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;border:1.5px solid var(--gold);color:var(--gold);font:700 23px/1 "Inter"}
+.dimbody h2{font-size:clamp(22px,3vw,30px);margin-bottom:6px}
+.dim-q{font:600 17px/1.5 "Noto Serif SC",serif;color:var(--ink);margin:2px 0 14px}
+.dimbody>p{font-size:16px;color:var(--ink-soft);line-height:1.8;margin-bottom:14px;max-width:46em}
+.dim-points{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.dim-points li{position:relative;padding-left:20px;font-size:14.5px;color:var(--ink-soft);line-height:1.65;max-width:48em}
+.dim-points li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+/* ===== 选购指南页 ===== */
+.guide{max-width:var(--maxw);margin:0 auto 40px}
+.guide h2{font-size:clamp(19px,2.6vw,25px);margin-bottom:20px;padding-bottom:12px;border-bottom:2px solid var(--gold-soft)}
+.check{list-style:none;display:flex;flex-direction:column;gap:14px}
+.check li{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:var(--ink-soft);line-height:1.6}
+.check .ck{flex-shrink:0;width:20px;height:20px;border:1.6px solid var(--gold);border-radius:5px;margin-top:2px;background:#fff}
+.disc-note{max-width:var(--maxw);margin:10px auto 0;font-size:13px;line-height:1.6}
+@media print{
+  .noprint{display:none !important}
+  body{background:#fff;color:#000}
+  .block{padding:8px 16px}
+  .guide{break-inside:avoid;margin-bottom:24px}
+  .guide h2{color:#1f2a5c}
+  .check li{color:#222}
+  .check .ck{border-color:#666}
+  a{color:#000;text-decoration:none}
+}
+
 /* ===== 响应式 ===== */
 @media(max-width:860px){
   .nav-links{
@@ -307,7 +335,7 @@ img,svg{display:block}
   .nav-links a{padding:14px 0;border-bottom:1px solid var(--line)}
   .menu-btn{display:flex}
   .pillars,.cards,.pub-grid,.know-list,.collab-grid{grid-template-columns:1fr}
-  .about-grid,.contact-grid,.leader,.team-grid,.detail-grid,.engage-grid,.tool-wrap{grid-template-columns:1fr;gap:28px}
+  .about-grid,.contact-grid,.leader,.team-grid,.detail-grid,.engage-grid,.tool-wrap,.dimblock{grid-template-columns:1fr;gap:28px}
   .detail-side,.tool-result{position:static}
   .acc-body{padding-left:24px}
 }
